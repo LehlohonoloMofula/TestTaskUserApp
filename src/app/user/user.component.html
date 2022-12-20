@@ -1,1 +1,39 @@
-<p>user works!</p>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">{{title}}</h1>
+    <div class="btn-toolbar mb-3">
+        <button class="btn btn-sm btn-primary" (click)="add()">
+          + Create
+        </button>
+      </div>
+  </div>
+  <div class="table-responsive">
+    <table class='table mt-3'>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="users && users.totalCount > 0">
+        <tr *ngFor="let user of users.items">
+          <td>{{order.name}}</td>
+          <td>{{order.email}}</td>
+          <td>{{order.status}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm mr-2" (click)="select(user)">View</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!users">
+        <tr>
+          <td>Loading...</td>
+        </tr>
+        <tr *ngIf="users && users.totalCount == 0">
+          <td colspan="10" class="text-center">No User available.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
