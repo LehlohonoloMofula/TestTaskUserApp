@@ -1,5 +1,5 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# More GitHub Actions for Azure: https://github.com/Azure/acti
 
 name: Build and deploy Node.js app to Azure Web App - TestTaskUserApp
 
@@ -26,8 +26,7 @@ jobs:
           
           npm install
           npm run build --if-present
-          npm run test --if-present
-      
+       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
