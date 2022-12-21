@@ -1,16 +1,24 @@
-import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from './user';
+import { Injectable, Inject } from "@angular/core";
+
+import { HttpClient } from "@angular/common/http";
+import { User } from "./user";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UsersService {
+  constructor(
+    @Inject("BASE_API_URL") private baseApiUrl: number,
+    private httpClient: HttpClient
+  ) {}
 
-  constructor(@Inject('BASE_API_URL') private baseApiUrl: string,
-    private httpClient: HttpClient) { }
+  find<T>(keyword, pageNumber, pageSize) {
+    return this.httpClient.get<T>(`${this.baseApiUrl}users/find`, {
+      params: { keyword, pageNumber, pageSize },
+    });
+  }
 
-  get<T>(id: string) {
+  get<T>(id: number) {
     return this.httpClient.get<T>(`${this.baseApiUrl}users/${id}`);
   }
 
@@ -21,5 +29,4 @@ export class UsersService {
       return this.httpClient.post<T>(`${this.baseApiUrl}users`, user);
     }
   }
-
 }

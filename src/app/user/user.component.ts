@@ -12,7 +12,10 @@ import { UsersService } from './user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  title = 'Users';
+  title = 'User List';
+  keyword = "";
+  pageNumber = 1;
+  pageSize = 10;
   alert : Alert;
   users: UserList;
   user: User;
@@ -21,6 +24,30 @@ export class UserComponent implements OnInit {
     private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.alert = <Alert>{};
+    this.users = <UserList>{};
+    this.find();
+  }
+
+  pageChange(page: number) {
+    this.pageNumber = page;
+    this.find();
+  }
+  
+  find() {
+    this.usersService.find<UserList>(this.keyword, this.pageNumber, this.pageSize).subscribe(
+      users => {
+        this.users = users;
+      },
+      errorResponse => {
+        this.alert.errorMessage = errorResponse.error.Message;
+      });
+  }
+
+  reloadItems($event: any) {
+    this.user = null;
+    this.alert = $event.alert;
+    this.find();
   }
 
   add() {

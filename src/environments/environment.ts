@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'https://service.krozari.com/api/',
+  baseApiUrl: 'https://testtaskuserwebapi.azurewebsites.net/api/'
 };
 
 /*

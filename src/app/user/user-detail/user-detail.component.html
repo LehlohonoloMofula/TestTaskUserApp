@@ -1,7 +1,7 @@
 <div *ngIf="user">
     <form (ngSubmit)="save()" #form="ngForm">
       <div class="modal-header">
-        <strong>Create/Edit {{title}}</strong>
+        <strong>Create {{title}}</strong>
       </div>
       <div class="modal-body">
         <div *ngIf="alert">
@@ -15,15 +15,15 @@
         <div class="form-row">
           <div class="form-group col-md-6" [class.has-errors]="name.invalid && name.touched">
             <label for="name" class="control-label">*First Name</label>
-             <input type="text" name="name" class="form-control form-control-sm" placeholder="Lehlohonolo Mofula" readonly
+             <input type="text" name="name" class="form-control form-control-sm" placeholder="Lehlohonolo Mofula" 
               [(ngModel)]="user.name" #name="ngModel" />
             <span class="text-danger" *ngIf="name.invalid && name.touched">
-              FIRST NAME IS REQUIRED.
+              NAME IS REQUIRED.
             </span>
           </div>
           <div class="form-group col-md-6" [class.has-errors]="email.invalid && email.touched">
             <label for="email" class="control-label">*Email</label>
-            <input type="text" name="email" class="form-control form-control-sm" placeholder="Lehlohonoloharrison@gmail.com" readonly
+            <input type="text" name="email" class="form-control form-control-sm" placeholder="Lehlohonoloharrison@gmail.com" 
               [(ngModel)]="user.email" #email="ngModel" />
             <span class="text-danger" *ngIf="email.invalid && email.touched">
               Email IS REQUIRED.
@@ -33,7 +33,7 @@
         <div class="form-row">
             <div class="form-group col-md-6" [class.has-errors]="status.invalid && status.touched">
                 <label for="status" class="control-label">*Status</label>
-                <input type="text" name="status" class="form-control form-control-sm" placeholder="Active" readonly
+                <input type="text" name="status" class="form-control form-control-sm" placeholder="Active" 
                   [(ngModel)]="user.status" #status="ngModel" />
                 <span class="text-danger" *ngIf="status.invalid && status.touched">
                   Status IS REQUIRED.

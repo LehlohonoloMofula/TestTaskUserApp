@@ -17,9 +17,9 @@
       </thead>
       <tbody *ngIf="users && users.totalCount > 0">
         <tr *ngFor="let user of users.items">
-          <td>{{order.name}}</td>
-          <td>{{order.email}}</td>
-          <td>{{order.status}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.status}}</td>
           <td>
             <button class="btn btn-primary btn-sm mr-2" (click)="select(user)">View</button>
           </td>
