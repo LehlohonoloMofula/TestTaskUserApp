@@ -25,7 +25,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     HttpClientModule,
     NgbModule,
     RouterModule.forRoot([
-      { path: '', component: UserComponent},
+      { path: 'users', component: UserComponent},
       { path: 'user/:id', component: UserDetailComponent}
 
     ])
