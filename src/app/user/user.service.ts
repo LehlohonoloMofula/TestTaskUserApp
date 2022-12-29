@@ -18,7 +18,7 @@ export class UsersService {
     });
   }
 
-  get<T>(id: number) {
+  get<T>(id: string) {
     return this.httpClient.get<T>(`${this.baseApiUrl}users/${id}`);
   }
 
@@ -28,5 +28,9 @@ export class UsersService {
     } else {
       return this.httpClient.post<T>(`${this.baseApiUrl}users`, user);
     }
+  }
+
+  delete(userId: string) {
+    return this.httpClient.delete(`${this.baseApiUrl}customers/${userId}`);
   }
 }

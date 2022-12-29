@@ -76,4 +76,27 @@ export class UserComponent implements OnInit {
     return false;
   }
 
+  delete() {
+    this.alert = <Alert>{};
+    this.usersService.delete(this.user.id).subscribe(
+      () => {
+        this.alert.successMessage = `${this.user.id} deleted successfully.`;
+        this.find();
+      },
+      errorResponse => {
+        this.alert.errorMessage = errorResponse.error.message;
+      });
+
+    return false;
+  }
+
+  confirmDelete(user, content) {
+    this.user = user;
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.delete();
+    }, (reason) => {
+    });
+  }
+  
+
 }
