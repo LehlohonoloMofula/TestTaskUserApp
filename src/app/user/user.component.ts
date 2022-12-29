@@ -11,8 +11,9 @@ import { UsersService } from './user.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
 export class UserComponent implements OnInit {
-  title = 'User List';
+  title = 'Users';
   keyword = "";
   pageNumber = 1;
   pageSize = 10;
@@ -75,28 +76,4 @@ export class UserComponent implements OnInit {
 
     return false;
   }
-
-  delete() {
-    this.alert = <Alert>{};
-    this.usersService.delete(this.user.id).subscribe(
-      () => {
-        this.alert.successMessage = `${this.user.id} deleted successfully.`;
-        this.find();
-      },
-      errorResponse => {
-        this.alert.errorMessage = errorResponse.error.message;
-      });
-
-    return false;
-  }
-
-  confirmDelete(user, content) {
-    this.user = user;
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      this.delete();
-    }, (reason) => {
-    });
-  }
-  
-
 }

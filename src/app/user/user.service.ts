@@ -12,14 +12,19 @@ export class UsersService {
     private httpClient: HttpClient
   ) {}
 
-  find<T>(keyword, pageNumber, pageSize) {
-    return this.httpClient.get<T>(`${this.baseApiUrl}users/find`, {
-      params: { keyword, pageNumber, pageSize },
-    });
+  getUsers<T>() {
+    return this.httpClient.get<T>(`${this.baseApiUrl}users`);
   }
-
+ 
   get<T>(id: string) {
     return this.httpClient.get<T>(`${this.baseApiUrl}users/${id}`);
+  }
+
+  find<T>(keyword, pageNumber, pageSize) {
+    return this.httpClient.get<T>(`${this.baseApiUrl}users/find`,
+      {
+        params: { keyword, pageNumber, pageSize }
+      });
   }
 
   save<T>(user: User) {
@@ -28,9 +33,5 @@ export class UsersService {
     } else {
       return this.httpClient.post<T>(`${this.baseApiUrl}users`, user);
     }
-  }
-
-  delete(userId: string) {
-    return this.httpClient.delete(`${this.baseApiUrl}customers/${userId}`);
   }
 }

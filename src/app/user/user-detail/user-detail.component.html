@@ -13,17 +13,19 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6" [class.has-errors]="name.invalid && name.touched">
+          <div class="form-group col-md-12" [class.has-errors]="name.invalid && name.touched">
             <label for="name" class="control-label">*First Name</label>
-             <input type="text" name="name" class="form-control form-control-sm" placeholder="Lehlohonolo Mofula" 
+             <input type="text" name="name" class="form-control form-control-sm" placeholder="Lehlohonolo Mofula" readonly
               [(ngModel)]="user.name" #name="ngModel" />
             <span class="text-danger" *ngIf="name.invalid && name.touched">
               NAME IS REQUIRED.
             </span>
           </div>
-          <div class="form-group col-md-6" [class.has-errors]="email.invalid && email.touched">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12" [class.has-errors]="email.invalid && email.touched">
             <label for="email" class="control-label">*Email</label>
-            <input type="text" name="email" class="form-control form-control-sm" placeholder="Lehlohonoloharrison@gmail.com" 
+            <input type="text" name="email" class="form-control form-control-sm" placeholder="Lehlohonoloharrison@gmail.com" readonly
               [(ngModel)]="user.email" #email="ngModel" />
             <span class="text-danger" *ngIf="email.invalid && email.touched">
               Email IS REQUIRED.
@@ -31,9 +33,9 @@
           </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6" [class.has-errors]="status.invalid && status.touched">
+            <div class="form-group col-md-12" [class.has-errors]="status.invalid && status.touched">
                 <label for="status" class="control-label">*Status</label>
-                <input type="text" name="status" class="form-control form-control-sm" placeholder="Active" 
+                <input type="text" name="status" class="form-control form-control-sm" placeholder="Active/Disable" readonly
                   [(ngModel)]="user.status" #status="ngModel" />
                 <span class="text-danger" *ngIf="status.invalid && status.touched">
                   Status IS REQUIRED.
