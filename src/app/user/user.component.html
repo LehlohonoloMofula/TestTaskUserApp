@@ -1,10 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
   <h1 class="h2">{{ title }}</h1>
-  <div class="btn-toolbar mb-3">
-    <button class="btn btn-sm btn-primary" (click)="add()">
-      + Create
-    </button>
-  </div>
 </div>
 <ng-template #confirm let-modal>
   <div class="modal-header">
@@ -57,7 +52,7 @@
         <th scope="col">Status</th>
       </tr>
     </thead>
-    <tbody *ngIf="users && users.totalCount > 0">
+    <tbody >
       <tr *ngFor="let user of users.items">
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>

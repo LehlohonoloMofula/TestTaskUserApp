@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { UsersService } from './user/user.service';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -32,7 +33,7 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     
   ],
 
-  providers: [NgbActiveModal],
+  providers: [NgbActiveModal, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

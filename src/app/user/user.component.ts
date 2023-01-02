@@ -46,7 +46,6 @@ export class UserComponent implements OnInit {
   }
 
   reloadItems($event: any) {
-    this.user = null;
     this.alert = $event.alert;
     this.find();
   }
@@ -73,7 +72,6 @@ export class UserComponent implements OnInit {
     modal.componentInstance.reloadItems.subscribe(($event) => {
       this.alert = $event.alert;
     });
-
     return false;
   }
 }

@@ -11,10 +11,6 @@ export class UsersService {
     @Inject("BASE_API_URL") private baseApiUrl: number,
     private httpClient: HttpClient
   ) {}
-
-  getUsers<T>() {
-    return this.httpClient.get<T>(`${this.baseApiUrl}users`);
-  }
  
   get<T>(id: string) {
     return this.httpClient.get<T>(`${this.baseApiUrl}users/${id}`);
