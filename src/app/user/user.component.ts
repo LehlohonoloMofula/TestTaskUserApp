@@ -14,7 +14,7 @@ import { UsersService } from './user.service';
 
 export class UserComponent implements OnInit {
   title = 'Users';
-  keyword = "";
+  keyword = "user";
   pageNumber = 1;
   pageSize = 10;
   alert : Alert;
